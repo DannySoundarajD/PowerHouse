@@ -2,7 +2,7 @@
 
 Sentinel is a sovereign, on-premise agentic AI workbench for industrial environments. It is designed to keep model inference, session state, document processing, and operational tools on local infrastructure, including air-gapped deployments.
 
-![Sentinel AI Workbench dashboard](docs/screenshots/sentinel-dashboard.png)
+![Sentinel AI Workbench CLI](docs/screenshots/sentinel-cli-ready.png)
 
 ## What It Provides
 
@@ -11,7 +11,7 @@ Sentinel is a sovereign, on-premise agentic AI workbench for industrial environm
 - SQLite-backed session history with full-text search and usage statistics
 - Local tools for documents, spreadsheets, PDFs, geospatial data, vision, RAG, and sandbox execution
 - Network guardrails and Docker sandbox support for controlled tool execution
-- Browser-based validation interface for checking backend, model, chat, and tool integration
+- Textual CLI for checking backend status, model routing, chat, and session state
 
 ## Requirements
 
@@ -52,19 +52,11 @@ The installed console entry point is also available after package installation:
 sentinel
 ```
 
-## Browser Validation Interface
+## CLI Session
 
-The Flask interface exposes local health, model, chat, and tool-registration checks:
+The primary user experience is the local Textual CLI. It keeps the conversation, model routing, session history, and commands in the terminal:
 
-```powershell
-python web_interface.py
-```
-
-Open `http://127.0.0.1:5000` in a browser. This page is a validation surface, not the primary chat client.
-
-![Tool registration validation view](docs/screenshots/tool-registration.png)
-
-The validation checks require Ollama and the expected local models. Tool registration currently exposes a JSON serialization issue for one tool object; this is retained as a visible diagnostic until the test endpoint is corrected.
+![Sentinel CLI chat session](docs/screenshots/sentinel-cli-session.png)
 
 ## Useful Commands
 
@@ -90,7 +82,7 @@ src/models/      Ollama backend and model registry
 src/network/     Network access guardrails
 src/tools/       Document, vision, RAG, sandbox, and file tools
 scripts/         Hardware checks, model setup, and verification
-templates/       Browser validation interface
+templates/       Optional local validation interface
 tests/           Unit and live-system tests
 docs/            Quick start and presentation documentation
 ```
