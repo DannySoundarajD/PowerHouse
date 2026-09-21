@@ -92,3 +92,7 @@ site/
 # OS
 Thumbs.db
 ~$*
+
+# Presentation files
+*.pptx
+*.ppt
