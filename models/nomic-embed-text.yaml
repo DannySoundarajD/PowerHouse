@@ -1,0 +1,25 @@
+# Embedding Model - Nomic Embed Text
+# CPU-resident model for RAG embeddings
+
+name: nomic-embed-text
+role: embedding
+backend: ollama
+model_id: nomic-embed-text
+context_window: 8192
+num_ctx: 8192
+vram_gb_min: 0.3  # Runs on CPU
+capabilities:
+  - text-embedding
+  - semantic-search
+  - rag
+prompt_template: default-chatml
+temperature: 1.0  # Not applicable for embeddings
+top_p: 1.0
+description: "Embedding model for local RAG and semantic search. Runs on CPU, does not compete for GPU resources."
+fallback: null
+metadata:
+  tier: all
+  recommended_hardware: "Any (CPU-only)"
+  load_time_estimate: "instant"
+  embedding_dimension: 768
+  runs_on_cpu: true

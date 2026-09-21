@@ -1,0 +1,27 @@
+# Llama 3.2 - Alternative General Model
+# Meta's Llama 3.2 for general tasks
+
+name: llama3.2-general
+role: general
+backend: ollama
+model_id: llama3.2:latest
+context_window: 131072
+num_ctx: 8192
+vram_gb_min: 2.0
+capabilities:
+  - general-reasoning
+  - conversation
+  - question-answering
+  - analysis
+  - writing
+prompt_template: default-chatml
+temperature: 0.7
+top_p: 0.9
+description: "Meta's Llama 3.2 model - alternative general-purpose model with strong reasoning capabilities."
+fallback: qwen2.5:3b
+metadata:
+  tier: low
+  recommended_hardware: "4GB+ VRAM"
+  load_time_estimate: "4s"
+  tokens_per_second: "18-30"
+  fully_gpu_resident: true

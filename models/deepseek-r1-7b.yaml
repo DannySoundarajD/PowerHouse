@@ -1,0 +1,28 @@
+# Reasoning Specialist Model - DeepSeek-R1-Distill-7B
+# On-demand model for complex reasoning and calculations
+
+name: deepseek-r1-7b
+role: reasoning
+backend: ollama
+model_id: deepseek-r1:7b
+context_window: 65536
+num_ctx: 8192  # Balance between context and performance
+vram_gb_min: 4.7
+capabilities:
+  - mathematical-reasoning
+  - logical-reasoning
+  - step-by-step-analysis
+  - calculation
+  - engineering-analysis
+  - problem-solving
+prompt_template: default-chatml
+temperature: 0.3  # Moderate temp for consistent reasoning
+top_p: 0.9
+description: "Reasoning specialist for complex calculations, engineering analysis, and multi-step problem solving. Uses CPU offloading on 4GB VRAM systems."
+fallback: qwen3.5-2b-router
+metadata:
+  tier: low
+  recommended_hardware: "4GB+ VRAM (with CPU offload), 8GB+ VRAM (full GPU)"
+  load_time_estimate: "8s"
+  tokens_per_second: "6-12 (with CPU offload)"
+  cpu_offload_expected: true

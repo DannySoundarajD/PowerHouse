@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel AI - Comprehensive Tool Testing</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .content { padding: 40px; }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .test-category {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #1e3c72;
+        }
+        .test-category h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .test-button {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.4);
+        }
+        .run-all-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #results { margin-top: 30px; }
+        .result-card {
+            background: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            animation: slideIn 0.3s ease-out;
+        }
+        .result-card.failed { border-left-color: #dc3545; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .result-category {
+            display: inline-block;
+            background: #1e3c72;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-right: 10px;
+        }
+        .result-title { font-weight: bold; font-size: 1.1em; }
+        .result-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .result-badge.passed { background: #28a745; color: white; }
+        .result-badge.failed { background: #dc3545; color: white; }
+        .result-details {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        .summary {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        .summary-item { text-align: center; }
+        .summary-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .summary-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        .loading.active { display: block; }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1e3c72;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛰️ Sentinel AI Workbench</h1>
+            <p class="subtitle">Comprehensive Tool Testing Interface - All 17+ Tools</p>
+        </header>
+        
+        <div class="content">
+            <button class="test-button run-all-button" onclick="runAllTests()">
+                🚀 RUN COMPLETE TEST SUITE (All Tools)
+            </button>
+            
+            <div class="test-grid">
+                <!-- God's Eye View -->
+                <div class="test-category">
+                    <h3>🗺️ God's Eye View</h3>
+                    <button class="test-button" onclick="testGodsEye('basic')">📍 Basic Map Generation</button>
+                    <button class="test-button" onclick="testGodsEye('markers')">📌 Map with Markers</button>
+                    <button class="test-button" onclick="testGodsEye('route')">🛣️ Route Visualization</button>
+                </div>
+                
+                <!-- Geospatial Tools -->
+                <div class="test-category">
+                    <h3>🌍 Geospatial Tools</h3>
+                    <button class="test-button" onclick="testGeospatial('coordinates')">📐 Coordinate Distance</button>
+                    <button class="test-button" onclick="testGeospatial('facility')">🏭 Facility Mapping</button>
+                    <button class="test-button" onclick="testGeospatial('pid')">📋 PID Overlay</button>
+                    <button class="test-button" onclick="testGeospatial('safety')">🛡️ Safety Zones</button>
+                </div>
+                
+                <!-- Core Tools -->
+                <div class="test-category">
+                    <h3>🛠️ Core Tools</h3>
+                    <button class="test-button" onclick="testTool('file-ops')">📁 File Operations</button>
+                    <button class="test-button" onclick="testTool('execute-code')">💻 Code Execution</button>
+                    <button class="test-button" onclick="testTool('spreadsheet')">📊 Spreadsheet Ops</button>
+                </div>
+                
+                <!-- RAG Tools -->
+                <div class="test-category">
+                    <h3>🧠 RAG Tools</h3>
+                    <button class="test-button" onclick="testRAG('embeddings')">🔢 Embeddings</button>
+                    <button class="test-button" onclick="testRAG('pdf')">📄 PDF Processing</button>
+                </div>
+                
+                <!-- System Tests -->
+                <div class="test-category">
+                    <h3>⚙️ System</h3>
+                    <button class="test-button" onclick="testSystem('health')">❤️ Health Check</button>
+                    <button class="test-button" onclick="testSystem('tools')">🔧 Tool Registry</button>
+                </div>
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Running tests...</p>
+            </div>
+            
+            <div id="results"></div>
+        </div>
+    </div>
+    
+    <script>
+        async function testGodsEye(testType) {
+            showLoading();
+            try {
+                const response = await fetch(`/api/test/gods-eye/${testType}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({})
+                });
+                const result = await response.json();
+                displayResult(result);
+            } catch (error) {
+                displayResult({test: `God's Eye View - ${testType}`, passed: false, error: error.message});
+            }
+            hideLoading();
+        }
+        
+        async function testGeospatial(testType) {
+            showLoading();
+            try {
+                const response = await fetch(`/api/test/geospatial/${testType}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({})
+                });
+                const result = await response.json();
+                displayResult(result);
+            } catch (error) {
+                displayResult({test: `Geospatial - ${testType}`, passed: false, error: error.message});
+            }
+            hideLoading();
+        }
+        
+        async function testTool(toolName) {
+            showLoading();
+            try {
+                const response = await fetch(`/api/test/tools/${toolName}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({})
+                });
+                const result = await response.json();
+                displayResult(result);
+            } catch (error) {
+                displayResult({test: `Tool - ${toolName}`, passed: false, error: error.message});
+            }
+            hideLoading();
+        }
+        
+        async function testRAG(testType) {
+            showLoading();
+            try {
+                const response = await fetch(`/api/test/rag/${testType}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({})
+                });
+                const result = await response.json();
+                displayResult(result);
+            } catch (error) {
+                displayResult({test: `RAG - ${testType}`, passed: false, error: error.message});
+            }
+            hideLoading();
+        }
+        
+        async function testSystem(testType) {
+            showLoading();
+            try {
+                const response = await fetch(`/api/test/system/${testType}`);
+                const result = await response.json();
+                displayResult(result);
+            } catch (error) {
+                displayResult({test: `System - ${testType}`, passed: false, error: error.message});
+            }
+            hideLoading();
+        }
+        
+        async function runAllTests() {
+            showLoading();
+            document.getElementById('results').innerHTML = '';
+            
+            try {
+                const response = await fetch('/api/test/all');
+                const data = await response.json();
+                
+                displaySummary(data.summary);
+                data.results.forEach(result => displayResult(result, false));
+            } catch (error) {
+                displayResult({test: 'All Tests', passed: false, error: error.message});
+            }
+            
+            hideLoading();
+        }
+        
+        function displaySummary(summary) {
+            const resultsDiv = document.getElementById('results');
+            const summaryHTML = `
+                <div class="summary">
+                    <div class="summary-item">
+                        <div class="summary-value">${summary.total}</div>
+                        <div class="summary-label">Total Tests</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${summary.passed}</div>
+                        <div class="summary-label">Passed</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${summary.failed}</div>
+                        <div class="summary-label">Failed</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${summary.pass_rate}</div>
+                        <div class="summary-label">Pass Rate</div>
+                    </div>
+                </div>
+            `;
+            resultsDiv.innerHTML = summaryHTML + resultsDiv.innerHTML;
+        }
+        
+        function displayResult(result, clear = true) {
+            const resultsDiv = document.getElementById('results');
+            if (clear) resultsDiv.innerHTML = '';
+            
+            const statusClass = result.passed ? 'passed' : 'failed';
+            const statusText = result.passed ? 'PASSED ✓' : 'FAILED ✗';
+            
+            let details = '';
+            if (result.category) {
+                details += `<span class="result-category">${result.category}</span>`;
+            }
+            if (result.details) details += `<p>${result.details}</p>`;
+            if (result.message) details += `<p>${result.message}</p>`;
+            if (result.coordinates) details += `<p>Coordinates: <code>${result.coordinates}</code></p>`;
+            if (result.markers) details += `<p>Markers: <code>${result.markers}</code></p>`;
+            if (result.waypoints) details += `<p>Waypoints: <code>${result.waypoints}</code></p>`;
+            if (result.result) details += `<p>Result: ${result.result}</p>`;
+            if (result.error) details += `<p style="color: #dc3545;">Error: ${result.error}</p>`;
+            
+            const cardHTML = `
+                <div class="result-card ${statusClass}">
+                    <div class="result-header">
+                        <div>
+                            <span class="result-title">${result.test}</span>
+                        </div>
+                        <span class="result-badge ${statusClass}">${statusText}</span>
+                    </div>
+                    <div class="result-details">${details}</div>
+                </div>
+            `;
+            
+            resultsDiv.innerHTML += cardHTML;
+        }
+        
+        function showLoading() {
+            document.getElementById('loading').classList.add('active');
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<mxfile host="app.diagrams.net" modified="2026-09-16T07:55:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="sih-architecture" name="MRPL Sovereign AI Workbench">
+    <mxGraphModel dx="1200" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 1. MRPL USERS -->
+        <mxCell id="node_user" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;MRPL USERS&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Engineers · Plant Operators · Technical Staff&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="480" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- WIDGET LAYER CONTAINER -->
+        <mxCell id="group_widget" value="WORKBENCH &amp;amp; WIDGET LAYER" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#666666;strokeWidth=1;dashed=1;fontColor=#333333;fontFamily=Helvetica;fontSize=11;startSize=25;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="500" height="95" as="geometry" />
+        </mxCell>
+
+        <!-- 2. SOVEREIGN TUI -->
+        <mxCell id="node_tui" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;SOVEREIGN TUI (Python + Textual)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Terminal Interface · Slash Commands&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="group_widget">
+          <mxGeometry x="15" y="32" width="225" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 3. REVEAL WIDGET LAYER -->
+        <mxCell id="node_reveal" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;REVEAL WIDGET LAYER&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;MRPL Enterprise Task Panel · Status &amp;amp; Action&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="group_widget">
+          <mxGeometry x="260" y="32" width="225" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 4. MASTER AGENT & ROUTER -->
+        <mxCell id="node_agent" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;MASTER AGENT &amp;amp; ROUTER (Python)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Task Decomposition · RTX 2050 (4GB) Check · Auto-Pull Engine&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="245" width="480" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 5. MULTIMODAL SPECIALISTS -->
+        <mxCell id="node_models" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;MULTIMODAL SPECIALISTS (Ollama)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Qwen3-VL (P&amp;amp;ID) · Qwen2.5-Coder · DeepSeek-R1 (Math)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="480" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 6. UNIFIED TOOLS & SANDBOX -->
+        <mxCell id="node_tools" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;UNIFIED TOOLS &amp;amp; SANDBOX&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;ChromaDB Vector RAG · Docker Sandbox · Doc/PPTX Gen&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="435" width="480" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 7. SECURITY & GOVERNANCE GATE -->
+        <mxCell id="node_sec" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;SECURITY &amp;amp; GOVERNANCE GATE&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Loopback Air-Gap (127.0.0.1) · Human-in-the-Loop Approval&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="530" width="480" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 8. WORKSPACE & LOCAL MEMORY -->
+        <mxCell id="node_db" value="&lt;b style=&quot;font-size: 13px;&quot;&gt;WORKSPACE &amp;amp; LOCAL MEMORY (SQLite)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;sessions.db History · Grounded Deliverables · JSONL Audit Logs&lt;/span&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="625" width="480" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- EDGES -->
+        <!-- User -> TUI -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" parent="1" source="node_user" target="node_tui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- TUI <-> REVEAL -->
+        <mxCell id="e_tui_reveal" value="Unified Interface" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#444444;strokeWidth=1;dashed=1;endArrow=classic;startArrow=classic;fontColor=#444444;fontSize=10;" edge="1" parent="group_widget" source="node_tui" target="node_reveal">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- TUI -> Agent -->
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" parent="1" source="node_tui" target="node_agent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Agent -> Models -->
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" parent="1" source="node_agent" target="node_models">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Models -> Tools -->
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" parent="1" source="node_models" target="node_tools">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Tools -> Security -->
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" parent="1" source="node_tools" target="node_sec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Security -> Memory -->
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;" edge="1" parent="1" source="node_sec" target="node_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- AI RESPONSE LOOPS BACK TO REVEAL WIDGET -->
+        <mxCell id="e_ai_response" value="AI Response (Fulfills REVEAL Task)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;dashed=1;endArrow=classic;endFill=1;fontColor=#000000;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="node_sec" target="node_reveal">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="560" />
+              <mxPoint x="580" y="177" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

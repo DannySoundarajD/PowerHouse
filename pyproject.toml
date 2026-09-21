@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentinel-ai"
+version = "1.0.0"
+description = "Sovereign On-Premise Agentic AI Workbench for Industrial Environments"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Sentinel Team", email = "sentinel@sih2026.local"}
+]
+keywords = ["ai", "llm", "agent", "air-gapped", "sovereign", "on-premise"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "ollama>=0.1.7",
+    "textual>=0.50.0",
+    "rich>=13.7.0",
+    "chromadb>=0.4.22",
+    "python-docx>=1.1.0",
+    "python-pptx>=0.6.23",
+    "openpyxl>=3.1.2",
+    "pandas>=2.2.0",
+    "PyPDF2>=3.0.0",
+    "pdfplumber>=0.11.0",
+    "Pillow>=10.2.0",
+    "docker>=7.0.0",
+    "psutil>=5.9.8",
+    "PyYAML>=6.0.1",
+    "python-dotenv>=1.0.0",
+    "sqlalchemy>=2.0.25",
+    "httpx>=0.26.0",
+    "aiofiles>=23.2.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.4",
+    "pytest-asyncio>=0.23.3",
+    "pytest-mock>=3.12.0",
+    "black>=24.1.1",
+    "flake8>=7.0.0",
+    "mypy>=1.8.0",
+]
+hf = [
+    "transformers>=4.37.0",
+    "torch>=2.1.2",
+    "accelerate>=0.26.1",
+]
+
+[project.scripts]
+sentinel = "src.cli.app:main"
+sentinel-detect = "scripts.detect_hardware:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/sentinel-ai"
+Documentation = "https://github.com/yourusername/sentinel-ai#readme"
+Repository = "https://github.com/yourusername/sentinel-ai.git"
+Issues = "https://github.com/yourusername/sentinel-ai/issues"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "scripts*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"

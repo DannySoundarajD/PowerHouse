@@ -1,0 +1,25 @@
+# Router Model Manifest - Qwen3.5-2B
+# Always-resident model for task classification and orchestration
+
+name: qwen3.5-2b-router
+role: router
+backend: ollama
+model_id: qwen3.5:2b
+context_window: 32768
+num_ctx: 4096  # Conservative for fast classification
+vram_gb_min: 2.7
+capabilities:
+  - task-classification
+  - conversation
+  - result-merging
+  - general-reasoning
+prompt_template: default-chatml
+temperature: 0.7
+top_p: 0.9
+description: "Lightweight always-resident router model for task classification and orchestration. Fast and efficient for 4GB VRAM systems."
+fallback: null  # Router has no fallback - it's essential
+metadata:
+  tier: low
+  recommended_hardware: "4GB+ VRAM"
+  load_time_estimate: "3s"
+  tokens_per_second: "15-25"

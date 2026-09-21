@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Technology Used – SIH 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    /* ── outer card – matches the blue rounded box in your PPT ── */
+    .tech-card {
+      width: 780px;
+      background: linear-gradient(160deg, #dbeafe 0%, #bfdbfe 100%);
+      border: 2px solid #93c5fd;
+      border-radius: 22px;
+      padding: 32px 36px 30px;
+      box-shadow: 0 6px 32px rgba(59,130,246,0.15);
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1e3a5f;
+      margin-bottom: 20px;
+      letter-spacing: 0.2px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── grid: 2 columns ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 28px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .item-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e40af;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      line-height: 1.3;
+    }
+
+    /* bullet dot */
+    .item-label::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #1e40af;
+      flex-shrink: 0;
+    }
+
+    .item-val {
+      font-size: 12px;
+      font-weight: 400;
+      color: #1e3a5f;
+      padding-left: 14px;
+      line-height: 1.55;
+    }
+
+    .item-val span {
+      font-style: italic;
+      color: #374151;
+    }
+
+    /* ── bottom badge row ── */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1.5px solid rgba(30,64,175,0.2);
+      align-items: center;
+    }
+    .badge-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #374151;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 4px;
+    }
+    .badge {
+      background: #1e40af;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+    .badge.green  { background: #065f46; }
+    .badge.indigo { background: #4338ca; }
+    .badge.red    { background: #991b1b; }
+  </style>
+</head>
+<body>
+<div class="tech-card">
+
+  <div class="card-title">TECHNOLOGY USED :</div>
+
+  <div class="grid">
+
+    <!-- 1 -->
+    <div class="item">
+      <div class="item-label">User Interface &amp; Terminal</div>
+      <div class="item-val">
+        Python Textual (TUI) + Rich Terminal UI<br>
+        <span>Flask Web Interface · REVEAL Widget Layer</span>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="item">
+      <div class="item-label">Core Agent &amp; Backend</div>
+      <div class="item-val">
+        Python 3.11 + Asyncio<br>
+        <span>MasterAgent ReAct Framework · httpx · aiofiles</span>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="item">
+      <div class="item-label">AI Models (Local LLMs via Ollama)</div>
+      <div class="item-val">
+        Qwen3.5:2B <span>(Router)</span> · Qwen2.5-Coder:7B <span>(Coding)</span><br>
+        DeepSeek-R1:7B <span>(Reasoning)</span> · Qwen3-VL:4B <span>(Vision)</span><br>
+        Llama3.2 <span>(General)</span> · Nomic-Embed <span>(Embeddings)</span>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="item">
+      <div class="item-label">Vision &amp; Document Processing</div>
+      <div class="item-val">
+        Qwen3-VL (P&amp;ID / OCR / Technical Drawings)<br>
+        <span>Tesseract OCR · pdfplumber · Pillow · pdf2image</span>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="item">
+      <div class="item-label">Execution Sandbox &amp; Security</div>
+      <div class="item-val">
+        Docker <span>(Isolated Containers, network_mode: none)</span><br>
+        <span>Air-Gap Network Guard · Loopback 127.0.0.1 only</span>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="item">
+      <div class="item-label">Tools, RAG &amp; Geospatial</div>
+      <div class="item-val">
+        ChromaDB Vector RAG · sentence-transformers<br>
+        <span>staticmap (Facility Maps) · python-docx · python-pptx · openpyxl</span>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="item">
+      <div class="item-label">Database &amp; Local Persistence</div>
+      <div class="item-val">
+        SQLite <span>(sessions.db via SQLAlchemy)</span><br>
+        <span>JSONL Audit Logs · PyYAML Model Manifests</span>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="item">
+      <div class="item-label">Hardware Target</div>
+      <div class="item-val">
+        NVIDIA RTX 2050 (4 GB VRAM) · Python 3.11+<br>
+        <span>CPU offload for 7B models · Zero internet dependency</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- badge row -->
+  <div class="badge-row">
+    <span class="badge-label">Stack :</span>
+    <span class="badge">Python 3.11</span>
+    <span class="badge indigo">Ollama</span>
+    <span class="badge indigo">ChromaDB</span>
+    <span class="badge green">Docker</span>
+    <span class="badge green">SQLite</span>
+    <span class="badge">Textual TUI</span>
+    <span class="badge red">Air-Gapped</span>
+    <span class="badge red">On-Premise</span>
+  </div>
+
+</div>
+</body>
+</html>

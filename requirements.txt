@@ -1,0 +1,66 @@
+# Core dependencies for Sentinel AI Workbench
+# Python 3.11+ required
+
+# LLM Backend
+ollama>=0.1.7
+
+# TUI Framework
+textual>=0.50.0
+rich>=13.7.0
+
+# Vector Database & Embeddings
+chromadb>=0.4.22
+sentence-transformers>=2.3.1
+
+# Document Processing
+python-docx>=1.1.0
+python-pptx>=0.6.23
+openpyxl>=3.1.2
+pandas>=2.2.0
+PyPDF2>=3.0.0
+pdfplumber>=0.11.0
+Pillow>=10.2.0
+
+# Vision/OCR/PDF processing
+pytesseract>=0.3.10
+pdf2image>=1.16.3
+# Note: Requires poppler-utils and tesseract-ocr binaries on Windows (install separately)
+# Windows Tesseract: https://github.com/UB-Mannheim/tesseract/wiki
+# Windows Poppler: https://github.com/oschwartz10612/poppler-windows/releases/
+
+# Docker SDK for Sandbox
+docker>=7.0.0
+
+# System Monitoring
+psutil>=5.9.8
+
+# Config & Data
+PyYAML>=6.0.1
+python-dotenv>=1.0.0
+
+# Database
+sqlalchemy>=2.0.25
+
+# HTTP Client (for Ollama fallback)
+httpx>=0.26.0
+
+# Async Support
+aiofiles>=23.2.1
+
+# Testing
+pytest>=7.4.4
+pytest-asyncio>=0.23.3
+pytest-mock>=3.12.0
+
+# Development
+black>=24.1.1
+flake8>=7.0.0
+mypy>=1.8.0
+
+# Optional: HuggingFace Transformers backend
+# transformers>=4.37.0
+# torch>=2.1.2
+# accelerate>=0.26.1
+
+# Geospatial / God's Eye View
+staticmap>=0.5.7  # Open-source map generation (no API key!)

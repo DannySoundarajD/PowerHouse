@@ -1,0 +1,171 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net" modified="2026-09-19T00:00:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="sentinel-ai-workflow" name="Sentinel AI – System Workflow">
+    <mxGraphModel dx="1800" dy="2400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2339" math="0" shadow="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="hdr_banner" value="&lt;b style=&quot;font-size: 20px;&quot;&gt;Sentinel AI — System Workflow&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 12px; color: #475569;&quot;&gt;End-to-End Autonomous Agent Execution &amp;amp; Context Lifecycle&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#cbd5e1;strokeWidth=1.5;align=center;arcSize=12;fontFamily=Helvetica;" parent="1" vertex="1">
+          <mxGeometry x="220" y="20" width="780" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="node_user" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;User&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Engineer / Operator / Technical Staff&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1b4332;" parent="1" vertex="1">
+          <mxGeometry x="320" y="95" width="420" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="callout_input" value="&lt;b style=&quot;font-size: 11px; color: #0f172a;&quot;&gt;Input&lt;/b&gt;&lt;br/&gt;• Natural language query&lt;br/&gt;• Documents / Images / Files&lt;br/&gt;• Tasks / Reports / Analysis" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;dashed=1;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=1.5;fontFamily=Helvetica;align=left;spacingLeft=10;spacingTop=6;spacingBottom=6;spacingRight=10;verticalAlign=top;fontColor=#334155;" parent="1" vertex="1">
+          <mxGeometry x="780" y="85" width="270" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;dashed=1;endArrow=none;" parent="1" edge="1" source="node_user" target="callout_input">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="node_tui" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;CLI Workbench (TUI)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Built with Python + Textual + Rich&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1e3a8a;" parent="1" vertex="1">
+          <mxGeometry x="320" y="190" width="420" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="arr_1_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_user" target="node_tui">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="callout_ui" value="&lt;b style=&quot;font-size: 11px; color: #0f172a;&quot;&gt;User Interface&lt;/b&gt;&lt;br/&gt;• Interactive CLI terminal (Textual)&lt;br/&gt;• Real-time streaming output&lt;br/&gt;• File upload &amp;amp; task management" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;dashed=1;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=1.5;fontFamily=Helvetica;align=left;spacingLeft=10;spacingTop=6;spacingBottom=6;spacingRight=10;verticalAlign=top;fontColor=#334155;" parent="1" vertex="1">
+          <mxGeometry x="780" y="180" width="270" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;dashed=1;endArrow=none;" parent="1" edge="1" source="node_tui" target="callout_ui">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="node_orch" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;AI Orchestrator (Qwen)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Custom MasterAgent (Asyncio) · Qwen Model&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#3c096c;" parent="1" vertex="1">
+          <mxGeometry x="320" y="285" width="420" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="arr_2_3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_tui" target="node_orch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="callout_orch" value="&lt;b style=&quot;font-size: 11px; color: #0f172a;&quot;&gt;Task Planning&lt;/b&gt;&lt;br/&gt;• Decompose task into subtasks&lt;br/&gt;• Coordinate specialist agents&lt;br/&gt;• Manage context &amp;amp; memory" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;dashed=1;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=1.5;fontFamily=Helvetica;align=left;spacingLeft=10;spacingTop=6;spacingBottom=6;spacingRight=10;verticalAlign=top;fontColor=#334155;" parent="1" vertex="1">
+          <mxGeometry x="780" y="275" width="270" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;dashed=1;endArrow=none;" parent="1" edge="1" source="node_orch" target="callout_orch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="node_router" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;Task Understanding &amp;amp; Routing&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;YAML Model Registry · Ollama Backend&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#ffe6cc;strokeColor=#d6b656;fontColor=#78350f;" parent="1" vertex="1">
+          <mxGeometry x="320" y="380" width="420" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="arr_3_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_orch" target="node_router">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="callout_router" value="&lt;b style=&quot;font-size: 11px; color: #0f172a;&quot;&gt;Model Router&lt;/b&gt;&lt;br/&gt;• Select best model for task&lt;br/&gt;• Load / unload on demand&lt;br/&gt;• Optimize execution pipeline" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;dashed=1;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=1.5;fontFamily=Helvetica;align=left;spacingLeft=10;spacingTop=6;spacingBottom=6;spacingRight=10;verticalAlign=top;fontColor=#334155;" parent="1" vertex="1">
+          <mxGeometry x="780" y="370" width="270" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;dashed=1;endArrow=none;" parent="1" edge="1" source="node_router" target="callout_router">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent_doc" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;Document Agent&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;PDFs, Docs, Sheets, OCR&lt;br/&gt;(pdfplumber, PyPDF2, Tesseract)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1e3a8a;" parent="1" vertex="1">
+          <mxGeometry x="75" y="475" width="210" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent_vis" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;Vision Agent&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Images, Diagrams, OCR&lt;br/&gt;(Qwen3-VL-4B)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1b4332;" parent="1" vertex="1">
+          <mxGeometry x="300" y="475" width="210" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent_reas" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;Reasoning / Coding Agent&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;DeepSeek-R1-7B,&lt;br/&gt;Qwen2.5-Coder-7B&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#78350f;" parent="1" vertex="1">
+          <mxGeometry x="525" y="475" width="210" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent_rag" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;Embedding &amp;amp; RAG&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;nomic-embed-text&lt;br/&gt;+ ChromaDB&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#7f1d1d;" parent="1" vertex="1">
+          <mxGeometry x="750" y="475" width="210" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_r_doc" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_router" target="agent_doc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_r_vis" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_router" target="agent_vis">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_r_reas" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_router" target="agent_reas">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_r_rag" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_router" target="agent_rag">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="node_tools" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;Tool Execution &amp;amp; Sandbox&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;ToolRegistry + ReAct | Docker (Isolated) | Network Guard&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1e3a8a;" parent="1" vertex="1">
+          <mxGeometry x="210" y="580" width="640" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_doc_t" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="agent_doc" target="node_tools">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_vis_t" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="agent_vis" target="node_tools">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_reas_t" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="agent_reas" target="node_tools">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_rag_t" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="agent_rag" target="node_tools">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="node_results" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;Result Generation&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Answer, Analysis, Report, Charts, Files&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#3c096c;" parent="1" vertex="1">
+          <mxGeometry x="210" y="670" width="640" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="arr_5_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_tools" target="node_results">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="callout_outputs" value="&lt;b style=&quot;font-size: 11px; color: #0f172a;&quot;&gt;Outputs&lt;/b&gt;&lt;br/&gt;• Text / Reports / Charts&lt;br/&gt;• Generated files&lt;br/&gt;• Actionable insights" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;dashed=1;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=1.5;fontFamily=Helvetica;align=left;spacingLeft=10;spacingTop=6;spacingBottom=6;spacingRight=10;verticalAlign=top;fontColor=#334155;" parent="1" vertex="1">
+          <mxGeometry x="880" y="660" width="260" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;dashed=1;endArrow=none;" parent="1" edge="1" source="node_results" target="callout_outputs">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="node_memory" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;Workspace &amp;amp; Memory&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;SQLite (sessions.db) + ChromaDB + Local File System&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1b4332;" parent="1" vertex="1">
+          <mxGeometry x="210" y="760" width="640" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="arr_6_7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_results" target="node_memory">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="callout_persist" value="&lt;b style=&quot;font-size: 11px; color: #0f172a;&quot;&gt;Persistence&lt;/b&gt;&lt;br/&gt;• Conversation history&lt;br/&gt;• Session checkpoints&lt;br/&gt;• Generated artifacts &amp;amp; logs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;dashed=1;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=1.5;fontFamily=Helvetica;align=left;spacingLeft=10;spacingTop=6;spacingBottom=6;spacingRight=10;verticalAlign=top;fontColor=#334155;" parent="1" vertex="1">
+          <mxGeometry x="880" y="750" width="260" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=1.5;dashed=1;endArrow=none;" parent="1" edge="1" source="node_memory" target="callout_persist">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="group_context" value="CONTEXT WINDOW MANAGEMENT &amp;amp; SUMMARIZATION" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#475569;strokeWidth=1.5;dashed=1;fontColor=#1e293b;fontFamily=Helvetica;fontSize=12;fontStyle=1;startSize=28;arcSize=10;" parent="1" vertex="1">
+          <mxGeometry x="60" y="855" width="1100" height="310" as="geometry"/>
+        </mxCell>
+        <mxCell id="dec_context" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;Context Limit&lt;br/&gt;Reached?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Helvetica;align=center;fontColor=#78350f;" parent="1" vertex="1">
+          <mxGeometry x="435" y="915" width="190" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_mem_dec" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="node_memory" target="dec_context">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_dec_no" value="[NO] Normal Chat Continues" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563eb;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;fontColor=#1e40af;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;" parent="1" edge="1" source="dec_context" target="node_user">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="957"/>
+              <mxPoint x="180" y="122"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="step_summary" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;1. Summarise Current Chat (Qwen)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Generates concise summary of dialogue, key decisions &amp;amp; findings&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#3c096c;" parent="1" vertex="1">
+          <mxGeometry x="700" y="895" width="420" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_dec_yes" value="[YES: Limit Reached]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;strokeColor=#dc2626;fontColor=#dc2626;fontStyle=1;" parent="1" edge="1" source="dec_context" target="step_summary">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="step_archive" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;2. Archive Current Chat&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Full transcript committed to SQLite (sessions.db) &amp;amp; archived&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1e3a8a;" parent="1" vertex="1">
+          <mxGeometry x="700" y="980" width="420" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sum_arch" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="step_summary" target="step_archive">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="step_new_chat" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;3. Start New Chat Session&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Starts clean chat session with previous Context Summary injected&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=18;strokeWidth=2;fontFamily=Helvetica;align=center;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1b4332;" parent="1" vertex="1">
+          <mxGeometry x="700" y="1060" width="420" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_arch_new" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1e293b;strokeWidth=2;endArrow=classic;endFill=1;" parent="1" edge="1" source="step_archive" target="step_new_chat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_new_to_orch" value="Injects Context Summary &amp; Continues Seamlessly" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563eb;strokeWidth=2;dashed=1;endArrow=classic;endFill=1;fontColor=#1e40af;fontSize=11;fontStyle=1;strokeColor=#059669;fontColor=#047857;labelBackgroundColor=#ffffff;" parent="1" edge="1" source="step_new_chat" target="node_orch">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="1092"/>
+              <mxPoint x="1140" y="312"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_cont_left" value="&lt;b style=&quot;font-size: 11px; color: #1e40af;&quot;&gt;Continuous&lt;br/&gt;Interaction&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-90;" parent="1" vertex="1">
+          <mxGeometry x="100" y="350" width="110" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend_banner" value="&lt;span style=&quot;font-size: 10px; color: #475569;&quot;&gt;&lt;b&gt;Legend:&lt;/b&gt; &lt;span style=&quot;background-color:#d5e8d4; padding:2px 8px; border-radius:4px; border:1px solid #82b366;&quot;&gt;User &amp;amp; Memory&lt;/span&gt; &amp;nbsp; &lt;span style=&quot;background-color:#dae8fc; padding:2px 8px; border-radius:4px; border:1px solid #6c8ebf;&quot;&gt;Interface &amp;amp; Tools&lt;/span&gt; &amp;nbsp; &lt;span style=&quot;background-color:#e1d5e7; padding:2px 8px; border-radius:4px; border:1px solid #9673a6;&quot;&gt;AI Orchestrator &amp;amp; Results&lt;/span&gt; &amp;nbsp; &lt;span style=&quot;background-color:#ffe6cc; padding:2px 8px; border-radius:4px; border:1px solid #d6b656;&quot;&gt;Model Routing&lt;/span&gt; &amp;nbsp; &lt;span style=&quot;background-color:#fff2cc; padding:2px 8px; border-radius:4px; border:1px solid #d6b656;&quot;&gt;Decision Point&lt;/span&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=1;align=center;fontFamily=Helvetica;" parent="1" vertex="1">
+          <mxGeometry x="220" y="1185" width="780" height="35" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

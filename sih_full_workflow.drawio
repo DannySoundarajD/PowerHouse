@@ -1,0 +1,540 @@
+<mxfile host="app.diagrams.net" modified="2026-09-19T00:00:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="sentinel-ai-workflow" name="Sentinel AI - Full System Workflow">
+    <mxGraphModel dx="1800" dy="2200" grid="1" gridSize="10" guides="1" tooltips="1"
+      connect="1" arrows="1" fold="1" page="1" pageScale="1"
+      pageWidth="1654" pageHeight="2339" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ============================================================== -->
+        <!-- TITLE                                                           -->
+        <!-- ============================================================== -->
+        <mxCell id="title"
+          value="&lt;b style=&quot;font-size:20px;&quot;&gt;Sentinel AI &amp;mdash; MRPL Sovereign AI Workbench&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:11px;color:#666;&quot;&gt;SIH 2026 | Air-Gapped | RTX 2050 4GB VRAM | Zero Internet | Full System Workflow&lt;/span&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#1a1a2e;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="920" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================== -->
+        <!-- SECTION A: MAIN WORKFLOW                                        -->
+        <!-- ============================================================== -->
+
+        <!-- NODE 1: USER -->
+        <mxCell id="node_user"
+          value="&lt;b style=&quot;font-size:13px;&quot;&gt;User&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;MRPL Engineers / Operators / Technical Staff&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=25;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="90" width="380" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Sidebar: Input -->
+        <mxCell id="sb_input"
+          value="&lt;b style=&quot;font-size:10px;&quot;&gt;Input&lt;/b&gt;&lt;br/&gt;- Natural language query&lt;br/&gt;- Documents / P&amp;amp;ID Images / Files&lt;br/&gt;- Tasks / Reports / Analysis"
+          style="text;html=1;strokeColor=#999999;fillColor=#f9f9f9;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;dashed=1;fontSize=10;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="695" y="85" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sb_input"
+          style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#999999;endArrow=none;"
+          edge="1" parent="1" source="node_user" target="sb_input">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 1 to 2 -->
+        <mxCell id="arr1"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_user" target="node_tui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- NODE 2: CLI WORKBENCH / TUI -->
+        <mxCell id="node_tui"
+          value="&lt;b style=&quot;font-size:13px;&quot;&gt;CLI Workbench (TUI)&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;Built with Python + Textual + Rich&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=25;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="185" width="380" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Sidebar: User Interface -->
+        <mxCell id="sb_ui"
+          value="&lt;b style=&quot;font-size:10px;&quot;&gt;User Interface&lt;/b&gt;&lt;br/&gt;- Interactive CLI (Textual TUI)&lt;br/&gt;- Real-time streaming output&lt;br/&gt;- File upload &amp;amp; management"
+          style="text;html=1;strokeColor=#999999;fillColor=#f9f9f9;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;dashed=1;fontSize=10;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="695" y="180" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sb_ui"
+          style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#999999;endArrow=none;"
+          edge="1" parent="1" source="node_tui" target="sb_ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Continuous Interaction rotated label -->
+        <mxCell id="lbl_continuous"
+          value="Continuous Interaction"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;rotation=-90;"
+          vertex="1" parent="1">
+          <mxGeometry x="198" y="275" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Loop back from Memory to User (left side) -->
+        <mxCell id="e_loop_back"
+          value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" parent="1" source="node_memory" target="node_user">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="228" y="817" />
+              <mxPoint x="228" y="117" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrow 2 to 3 -->
+        <mxCell id="arr2"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_tui" target="node_orchestrator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- NODE 3: AI ORCHESTRATOR -->
+        <mxCell id="node_orchestrator"
+          value="&lt;b style=&quot;font-size:13px;&quot;&gt;AI Orchestrator&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;Custom MasterAgent (Asyncio) + Qwen2.5-7B&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=25;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="280" width="380" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Sidebar: Task Planning -->
+        <mxCell id="sb_plan"
+          value="&lt;b style=&quot;font-size:10px;&quot;&gt;Task Planning&lt;/b&gt;&lt;br/&gt;- Decompose task into subtasks&lt;br/&gt;- Coordinate specialist agents&lt;br/&gt;- Manage context &amp;amp; memory"
+          style="text;html=1;strokeColor=#999999;fillColor=#f9f9f9;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;dashed=1;fontSize=10;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="695" y="275" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sb_plan"
+          style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#999999;endArrow=none;"
+          edge="1" parent="1" source="node_orchestrator" target="sb_plan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 3 to 4 -->
+        <mxCell id="arr3"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_orchestrator" target="node_router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- NODE 4: TASK UNDERSTANDING AND ROUTING -->
+        <mxCell id="node_router"
+          value="&lt;b style=&quot;font-size:13px;&quot;&gt;Task Understanding &amp;amp; Routing&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;YAML Model Registry + psutil + RTX 2050 (4 GB) VRAM Check&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=25;fillColor=#ffe6cc;strokeColor=#d6b656;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="375" width="380" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Sidebar: Model Router -->
+        <mxCell id="sb_router"
+          value="&lt;b style=&quot;font-size:10px;&quot;&gt;Model Router&lt;/b&gt;&lt;br/&gt;- Select best model for task&lt;br/&gt;- Load/unload on demand (Ollama)&lt;br/&gt;- Optimize VRAM resource usage"
+          style="text;html=1;strokeColor=#999999;fillColor=#f9f9f9;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;dashed=1;fontSize=10;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="695" y="370" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sb_router"
+          style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#999999;endArrow=none;"
+          edge="1" parent="1" source="node_router" target="sb_router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows from router to 4 specialist agents -->
+        <mxCell id="arr4a"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_router" target="node_doc_agent">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="460" />
+              <mxPoint x="330" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr4b"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_router" target="node_vision_agent">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="436" y="460" />
+              <mxPoint x="436" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr4c"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_router" target="node_reason_agent">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="558" y="460" />
+              <mxPoint x="558" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr4d"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_router" target="node_rag_agent">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="460" />
+              <mxPoint x="793" y="460" />
+              <mxPoint x="793" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ============================================================== -->
+        <!-- SPECIALIST AGENTS ROW (4 boxes)                                -->
+        <!-- ============================================================== -->
+
+        <!-- Agent A: Document Agent -->
+        <mxCell id="node_doc_agent"
+          value="&lt;b style=&quot;font-size:11px;&quot;&gt;Document Agent&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;PDFs, Docs, Sheets, OCR&lt;br/&gt;(pdfplumber, PyPDF2,&lt;br/&gt;Tesseract etc.)&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="475" width="145" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Agent B: Vision Agent -->
+        <mxCell id="node_vision_agent"
+          value="&lt;b style=&quot;font-size:11px;&quot;&gt;Vision Agent&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;P&amp;amp;ID Diagrams&lt;br/&gt;Images, Charts&lt;br/&gt;(Qwen3-VL)&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="433" y="475" width="145" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Agent C: Reasoning / Coding Agent -->
+        <mxCell id="node_reason_agent"
+          value="&lt;b style=&quot;font-size:11px;&quot;&gt;Reasoning / Coding&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;Qwen2.5-7B&lt;br/&gt;DeepSeek-R1 (Math)&lt;br/&gt;Qwen2.5-Coder&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#ffe6cc;strokeColor=#d6b656;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="586" y="475" width="145" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Agent D: Embedding and RAG -->
+        <mxCell id="node_rag_agent"
+          value="&lt;b style=&quot;font-size:11px;&quot;&gt;Embedding &amp;amp; RAG&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;sentence-transformers&lt;br/&gt;+ ChromaDB&lt;br/&gt;(Vector Search)&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="739" y="475" width="145" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows from agents to Tool Execution -->
+        <mxCell id="arr5a"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_doc_agent" target="node_tools">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr5b"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_vision_agent" target="node_tools">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr5c"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_reason_agent" target="node_tools">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr5d"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=1.5;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_rag_agent" target="node_tools">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="811" y="604" />
+              <mxPoint x="650" y="604" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- NODE 5: TOOL EXECUTION AND SANDBOX -->
+        <mxCell id="node_tools"
+          value="&lt;b style=&quot;font-size:13px;&quot;&gt;Tool Execution &amp;amp; Sandbox&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;ToolRegistry + ReAct | Docker (Isolated) | Air-Gap Network Guard (127.0.0.1)&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=25;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="608" width="480" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 5 to 6 -->
+        <mxCell id="arr6"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_tools" target="node_result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- NODE 6: RESULT GENERATION -->
+        <mxCell id="node_result"
+          value="&lt;b style=&quot;font-size:13px;&quot;&gt;Result Generation&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;Answer, Analysis, Report (PPTX/PDF/DOCX), Charts, Generated Files&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=25;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="703" width="480" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Sidebar: Outputs -->
+        <mxCell id="sb_output"
+          value="&lt;b style=&quot;font-size:10px;&quot;&gt;Outputs&lt;/b&gt;&lt;br/&gt;- Text / Reports / Charts&lt;br/&gt;- Generated PPTX / PDF files&lt;br/&gt;- Actionable engineering insights"
+          style="text;html=1;strokeColor=#999999;fillColor=#f9f9f9;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;dashed=1;fontSize=10;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="695" y="698" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sb_out"
+          style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#999999;endArrow=none;"
+          edge="1" parent="1" source="node_result" target="sb_output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 6 to 7 -->
+        <mxCell id="arr7"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="node_result" target="node_memory">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- NODE 7: WORKSPACE AND MEMORY -->
+        <mxCell id="node_memory"
+          value="&lt;b style=&quot;font-size:13px;&quot;&gt;Workspace &amp;amp; Memory&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;SQLite (sessions.db) + ChromaDB + Local File System + JSONL Audit Logs&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=25;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="798" width="480" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Sidebar: Persistence -->
+        <mxCell id="sb_persist"
+          value="&lt;b style=&quot;font-size:10px;&quot;&gt;Persistence&lt;/b&gt;&lt;br/&gt;- Conversation history (SQLite)&lt;br/&gt;- Session checkpoints (JSONL)&lt;br/&gt;- Generated artifacts on disk"
+          style="text;html=1;strokeColor=#999999;fillColor=#f9f9f9;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;dashed=1;fontSize=10;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="695" y="793" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sb_persist"
+          style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#999999;endArrow=none;"
+          edge="1" parent="1" source="node_memory" target="sb_persist">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================== -->
+        <!-- SECTION B: CONTEXT WINDOW MANAGEMENT FLOW                      -->
+        <!-- ============================================================== -->
+
+        <!-- Section Header -->
+        <mxCell id="ctx_header"
+          value="&lt;b style=&quot;font-size:14px;color:#7B0000;&quot;&gt;Context Window Management Flow&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;color:#555;&quot;&gt;Triggered automatically when token count approaches model context limit&lt;/span&gt;"
+          style="text;html=1;strokeColor=#b85450;fillColor=#fff0f0;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="900" width="480" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Connector: Memory to Context Section -->
+        <mxCell id="arr_ctx_trigger"
+          value="monitors token count"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=1.5;dashed=1;endArrow=block;endFill=1;fontColor=#b85450;fontSize=9;labelBackgroundColor=#ffffff;"
+          edge="1" parent="1" source="node_memory" target="ctx_header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow to Decision Diamond -->
+        <mxCell id="arr_ctx1"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="ctx_header" target="ctx_check">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- DECISION DIAMOND -->
+        <mxCell id="ctx_check"
+          value="&lt;b&gt;Context Limit&lt;br/&gt;Reached?&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;token_count &amp;ge; threshold&lt;/span&gt;"
+          style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Helvetica;fontSize=11;fontColor=#000000;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="360" y="990" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- NO label -->
+        <mxCell id="ctx_no_label"
+          value="NO"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#007700;"
+          vertex="1" parent="1">
+          <mxGeometry x="174" y="1025" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- NO branch -->
+        <mxCell id="arr_ctx_no"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#007700;strokeWidth=1.5;endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;"
+          edge="1" parent="1" source="ctx_check" target="ctx_continue">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="1035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Continue Normal Chat box -->
+        <mxCell id="ctx_continue"
+          value="Continue&lt;br/&gt;Normal Chat"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontColor=#000000;fontFamily=Helvetica;fontSize=11;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="128" y="1010" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- YES label -->
+        <mxCell id="ctx_yes_label"
+          value="YES"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#cc0000;"
+          vertex="1" parent="1">
+          <mxGeometry x="466" y="1083" width="40" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- YES branch -->
+        <mxCell id="arr_ctx_yes"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#cc0000;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;"
+          edge="1" parent="1" source="ctx_check" target="ctx_summarise">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- STEP 1: Context Summarisation Engine -->
+        <mxCell id="ctx_summarise"
+          value="&lt;b style=&quot;font-size:12px;&quot;&gt;Context Summarisation Engine&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;Qwen2.5-7B condenses the full conversation&lt;br/&gt;into a structured Context Summary Block&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffe6cc;strokeColor=#d6b656;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="310" y="1110" width="320" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow to Archive -->
+        <mxCell id="arr_ctx2"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#d6b656;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="ctx_summarise" target="ctx_archive">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- STEP 2: Archive Old Context -->
+        <mxCell id="ctx_archive"
+          value="&lt;b style=&quot;font-size:12px;&quot;&gt;Archive Old Context&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;Full raw conversation saved to&lt;br/&gt;SQLite (sessions.db) + JSONL Audit Log&lt;/span&gt;"
+          style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="310" y="1210" width="320" height="72" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow to New Session -->
+        <mxCell id="arr_ctx3"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#b85450;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="ctx_archive" target="ctx_new_session">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- STEP 3: New Session Initialised -->
+        <mxCell id="ctx_new_session"
+          value="&lt;b style=&quot;font-size:12px;&quot;&gt;New Chat Session Initialised&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;Fresh context window opened with:&lt;br/&gt;[System Prompt] + [Context Summary Block] injected at top&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="310" y="1318" width="320" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow to Seamless Continuation -->
+        <mxCell id="arr_ctx4"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#6c8ebf;strokeWidth=2;endArrow=block;endFill=1;"
+          edge="1" parent="1" source="ctx_new_session" target="ctx_resume">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- STEP 4: Seamless Continuation -->
+        <mxCell id="ctx_resume"
+          value="&lt;b style=&quot;font-size:12px;&quot;&gt;Seamless Continuation&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:10px;&quot;&gt;User continues from where they left off.&lt;br/&gt;Context Summary provides full prior awareness.&lt;/span&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=center;"
+          vertex="1" parent="1">
+          <mxGeometry x="310" y="1425" width="320" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Loop back: Seamless Continuation to Orchestrator -->
+        <mxCell id="arr_ctx_loop"
+          value="Resume session"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82b366;strokeWidth=1.5;dashed=1;endArrow=block;endFill=1;fontColor=#007700;fontSize=9;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;"
+          edge="1" parent="1" source="ctx_resume" target="node_orchestrator">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="1457" />
+              <mxPoint x="900" y="307" />
+              <mxPoint x="660" y="307" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ============================================================== -->
+        <!-- CONTEXT SUMMARY BLOCK ANNOTATION                               -->
+        <!-- ============================================================== -->
+        <mxCell id="ctx_summary_detail"
+          value="&lt;b style=&quot;font-size:11px;color:#4a0000;&quot;&gt;Context Summary Block Contents&lt;/b&gt;&lt;br/&gt;&lt;span style=&quot;font-size:9px;color:#333;&quot;&gt;- Session ID &amp;amp; timestamp&lt;br/&gt;- User goal / original task description&lt;br/&gt;- Key decisions and conclusions reached&lt;br/&gt;- Files / artefacts generated so far&lt;br/&gt;- State of any running sub-tasks&lt;br/&gt;- Important facts &amp;amp; data extracted&lt;br/&gt;- Next steps remaining&lt;/span&gt;"
+          style="text;html=1;strokeColor=#b85450;fillColor=#fff8f8;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;dashed=1;fontSize=10;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="685" y="1110" width="220" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ctx_detail"
+          style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#b85450;endArrow=none;"
+          edge="1" parent="1" source="ctx_summarise" target="ctx_summary_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================== -->
+        <!-- LEGEND                                                          -->
+        <!-- ============================================================== -->
+        <mxCell id="legend_box" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;strokeWidth=1;arcSize=5;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="1525" width="620" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="&lt;b&gt;Legend&lt;/b&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#000000;"
+          vertex="1" parent="1">
+          <mxGeometry x="295" y="1530" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="295" y="1553" width="24" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1_lbl" value="Input / Output / Execution" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="325" y="1551" width="160" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="295" y="1573" width="24" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2_lbl" value="Interface / Session Layer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="325" y="1571" width="160" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="295" y="1593" width="24" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3_lbl" value="AI Orchestration" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="325" y="1591" width="160" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1553" width="24" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4_lbl" value="Task Routing / Specialist Models" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1551" width="200" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1573" width="24" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5_lbl" value="Context Mgmt / RAG / Archival" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1571" width="200" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1591" width="24" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6_lbl" value="Decision Point" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1589" width="200" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- FOOTER -->
+        <mxCell id="footer"
+          value="SIH 2026 | Problem Statement 1 | MRPL Sovereign AI Workbench | RTX 2050 4 GB VRAM | 100% On-Premise | Zero Internet | Air-Gapped"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#888888;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="1648" width="700" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

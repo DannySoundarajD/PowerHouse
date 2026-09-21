@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel AI Workbench - Test Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .test-section {
+            margin-bottom: 30px;
+        }
+        
+        .test-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .test-button:active {
+            transform: translateY(0);
+        }
+        
+        #results {
+            margin-top: 30px;
+        }
+        
+        .result-card {
+            background: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .result-card.failed {
+            border-left-color: #dc3545;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .result-title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .result-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .result-badge.passed {
+            background: #28a745;
+            color: white;
+        }
+        
+        .result-badge.failed {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .result-details {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .summary-item {
+            text-align: center;
+        }
+        
+        .summary-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .summary-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛰️ Sentinel AI Workbench</h1>
+            <p class="subtitle">Comprehensive System Testing Interface</p>
+        </header>
+        
+        <div class="content">
+            <div class="test-section">
+                <h2>Run Tests</h2>
+                <button class="test-button" onclick="runTest('health')">🔧 Test Ollama Connection</button>
+                <button class="test-button" onclick="runTest('models')">📦 Test Model Listing</button>
+                <button class="test-button" onclick="runTest('chat')">💬 Test Chat Functionality</button>
+                <button class="test-button" onclick="runTest('tools')">🛠️ Test Tool Registration</button>
+                <button class="test-button" onclick="runAllTests()" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🚀 Run All Tests</button>
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Running tests...</p>
+            </div>
+            
+            <div id="results"></div>
+        </div>
+    </div>
+    
+    <script>
+        async function runTest(testName) {
+            showLoading();
+            
+            try {
+                let response;
+                if (testName === 'chat') {
+                    response = await fetch(`/api/test/${testName}`, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({message: 'What is 2+2?'})
+                    });
+                } else {
+                    response = await fetch(`/api/test/${testName}`);
+                }
+                
+                const result = await response.json();
+                displayResult(result);
+            } catch (error) {
+                displayResult({
+                    test: testName,
+                    passed: false,
+                    error: error.message
+                });
+            }
+            
+            hideLoading();
+        }
+        
+        async function runAllTests() {
+            showLoading();
+            
+            try {
+                const response = await fetch('/api/test/all');
+                const data = await response.json();
+                
+                // Display summary
+                displaySummary(data.summary);
+                
+                // Display individual results
+                data.results.forEach(result => {
+                    displayResult(result, false);
+                });
+            } catch (error) {
+                displayResult({
+                    test: 'All Tests',
+                    passed: false,
+                    error: error.message
+                });
+            }
+            
+            hideLoading();
+        }
+        
+        function displaySummary(summary) {
+            const resultsDiv = document.getElementById('results');
+            const summaryHTML = `
+                <div class="summary">
+                    <div class="summary-item">
+                        <div class="summary-value">${summary.total}</div>
+                        <div class="summary-label">Total Tests</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${summary.passed}</div>
+                        <div class="summary-label">Passed</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${summary.failed}</div>
+                        <div class="summary-label">Failed</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">${summary.pass_rate}</div>
+                        <div class="summary-label">Pass Rate</div>
+                    </div>
+                </div>
+            `;
+            resultsDiv.innerHTML = summaryHTML + resultsDiv.innerHTML;
+        }
+        
+        function displayResult(result, clear = true) {
+            const resultsDiv = document.getElementById('results');
+            
+            if (clear) {
+                resultsDiv.innerHTML = '';
+            }
+            
+            const statusClass = result.passed ? 'passed' : 'failed';
+            const statusText = result.passed ? 'PASSED ✓' : 'FAILED ✗';
+            
+            let details = '';
+            if (result.message) {
+                details += `<p>${result.message}</p>`;
+            }
+            if (result.model_count !== undefined) {
+                details += `<p>Models found: <code>${result.model_count}</code></p>`;
+                if (result.models) {
+                    details += `<p>Sample models: ${result.models.map(m => `<code>${m}</code>`).join(', ')}</p>`;
+                }
+            }
+            if (result.tool_count !== undefined) {
+                details += `<p>Tools registered: <code>${result.tool_count}</code></p>`;
+                if (result.tools) {
+                    details += `<p>Tools: ${result.tools.slice(0, 5).map(t => `<code>${t}</code>`).join(', ')}...</p>`;
+                }
+            }
+            if (result.query) {
+                details += `<p>Query: <code>${result.query}</code></p>`;
+            }
+            if (result.response) {
+                details += `<p>Response: ${result.response}</p>`;
+            }
+            if (result.error) {
+                details += `<p style="color: #dc3545;">Error: ${result.error}</p>`;
+            }
+            
+            const cardHTML = `
+                <div class="result-card ${statusClass}">
+                    <div class="result-header">
+                        <span class="result-title">${result.test}</span>
+                        <span class="result-badge ${statusClass}">${statusText}</span>
+                    </div>
+                    <div class="result-details">
+                        ${details}
+                    </div>
+                </div>
+            `;
+            
+            resultsDiv.innerHTML += cardHTML;
+        }
+        
+        function showLoading() {
+            document.getElementById('loading').classList.add('active');
+        }
+        
+        function hideLoading() {
+            document.getElementById('loading').classList.remove('active');
+        }
+        
+        // Auto-run health check on load
+        window.addEventListener('load', () => {
+            setTimeout(() => runTest('health'), 500);
+        });
+    </script>
+</body>
+</html>

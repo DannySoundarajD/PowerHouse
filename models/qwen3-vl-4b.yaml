@@ -1,0 +1,29 @@
+# Vision Specialist Model - Qwen3-VL-4B
+# On-demand model for image/document OCR and analysis
+
+name: qwen3-vl-4b
+role: vision
+backend: ollama
+model_id: qwen3-vl:4b
+context_window: 32768
+num_ctx: 8192  # Generous for image token representation
+vram_gb_min: 3.3
+capabilities:
+  - ocr
+  - image-understanding
+  - document-extraction
+  - visual-reasoning
+  - technical-drawing-analysis
+  - pid-analysis
+prompt_template: default-chatml
+temperature: 0.4  # Moderate temp for balanced extraction
+top_p: 0.9
+description: "Vision specialist for OCR, document extraction, and technical drawing analysis. Processes images at full resolution with tiled processing for large inputs."
+fallback: null  # Vision tasks require vision model - no text fallback
+metadata:
+  tier: low
+  recommended_hardware: "4GB+ VRAM"
+  load_time_estimate: "6s"
+  tokens_per_second: "10-20"
+  supports_tiled_processing: true
+  max_image_dimension: 4096  # No hard limit, process at full resolution
